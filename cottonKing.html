@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CottonKing</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    <!--header-->
+    <section>
+        <div class="container mb-2 border-bottom">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                <img src="data:image/png;base64,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" alt="logo" height="50px" width="80px">
+            </a>
+    
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 m-lg-3">
+              <li><a href="#home" class="nav-link px-2 ">Home</a></li>
+              <li><a href="#feature" class="nav-link px-2 ">Features</a></li>
+              <li><a href="#collection" class="nav-link px-2 ">collection</a></li>
+              <li><a href="#product" class="nav-link px-2 ">Products</a></li>
+              <li><a href="#contact" class="nav-link px-2 ">Contact</a></li>
+
+            </ul>
+    
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+              <input type="search" class="form-control form-control-dark " placeholder="Search..." aria-label="Search">
+            </form>
+    
+            <div class="text-end">
+              <button type="button" class="btn btn-outline-dark me-2">Sign In</button>
+              <button type="button" class="btn btn-warning">Shop Now</button>
+            </div>
+          </div>
+        </div>
+    </section>
+    <!--Home /main section-->
+    <section class="home">
+        <div class="container col-xxl-8 px-4 py-3" id="home">
+            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+                <div class="col-10 col-sm-8 col-lg-6">
+                    <img src="https://www.punekarcotton.com/cdn/shop/products/sky-blue-color-combed-cotton-shirts-for-men-164844.jpg?v=1705490901&width=1500" 
+                         class="d-block mx-auto" 
+                         alt="Sky Blue Combed Cotton Shirt for Men" 
+                         width="500px" 
+                         height="400px" 
+                         loading="lazy">
+                </div>
+                <div class="col-lg-6">
+                    <h1 class="display-5 fw-bold text-dark lh-1 mb-3">Discover the Elegance of Premium Cotton</h1>
+                    <p class="lead">Experience the perfect blend of comfort, style, and durability with Cotton King's exclusive range of combed cotton apparel. Designed for the modern man, our collection is crafted to elevate your everyday wardrobe with breathable fabrics and timeless designs.</p>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                        <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Add To Cart</button>
+                        <button type="button" class="btn btn-outline-secondary btn-lg px-4">Explore</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!--Feature-->
+    <section>
+        <div class="container px-4 py-2 border-bottom" id="feature">
+          <h2 class="pb-2 border-bottom">Explore Our Premium Features</h2>
+          <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+            <!-- Feature 1 -->
+            <div class="feature col">
+              <div class="feature-icon d-inline-flex align-items-center justify-content-center bg-gradient fs-2 mb-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="currentColor" class="bi bi-feather" viewBox="0 0 16 16">
+                  <path d="M15.807.531c-.174-.177-.41-.289-.64-.363a3.8 3.8 0 0 0-.833-.15c-.62-.049-1.394 0-2.252.175C10.365.545 8.264 1.415 6.315 3.1S3.147 6.824 2.557 8.523c-.294.847-.44 1.634-.429 2.268.005.316.05.62.154.88q.025.061.056.122A68 68 0 0 0 .08 15.198a.53.53 0 0 0 .157.72.504.504 0 0 0 .705-.16 68 68 0 0 1 2.158-3.26c.285.141.616.195.958.182.513-.02 1.098-.188 1.723-.49 1.25-.605 2.744-1.787 4.303-3.642l1.518-1.55a.53.53 0 0 0 0-.739l-.729-.744 1.311.209a.5.5 0 0 0 .443-.15l.663-.684c.663-.68 1.292-1.325 1.763-1.892.314-.378.585-.752.754-1.107.163-.345.278-.773.112-1.188a.5.5 0 0 0-.112-.172"/>
+                </svg>
+              </div>
+              <h3 class="fs-2 text-body-emphasis">Unmatched Comfort</h3>
+              <p>Our premium cotton shirts redefine comfort with their soft, breathable fabric, designed to keep you feeling fresh all day long. Perfect for any occasion, our clothing merges luxury with practicality.</p>
+              <a href="#" class="icon-link">
+                Discover More
+                <svg class="bi" xmlns="http://www.w3.org/2000/svg" width="16" height="16"><use xlink:href="#chevron-right"></use></svg>
+              </a>
+            </div>
+      
+            <!-- Feature 2 -->
+            <div class="feature col">
+              <div class="feature-icon d-inline-flex align-items-center justify-content-center bg-gradient fs-2 mb-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="currentColor" class="bi bi-collection-fill" viewBox="0 0 16 16">
+                    <path d="M0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6zM2 3a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 0-1h-11A.5.5 0 0 0 2 3m2-2a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 0-1h-7A.5.5 0 0 0 4 1"/>
+                  </svg>
+              </div>
+              <h3 class="fs-2 text-body-emphasis">Tailored For You</h3>
+              <p>Each piece in our collection is thoughtfully designed to provide a tailored fit, ensuring you look sharp and feel confident no matter the setting. Elevate your wardrobe with Cotton King.</p>
+              <a href="#learnmore" class="icon-link">
+                Learn More
+                <svg class="bi" xmlns="http://www.w3.org/2000/svg" width="16" height="16"><use xlink:href="#chevron-right"></use></svg>
+              </a>
+            </div>
+      
+            <!-- Feature 3 -->
+            <div class="feature col">
+              <div class="feature-icon d-inline-flex align-items-center justify-content-center bg-gradient fs-2 mb-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="currentColor" class="bi bi-bag-check-fill" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0m-.646 5.354a.5.5 0 0 0-.708-.708L7.5 10.793 6.354 9.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0z"/>
+                  </svg>
+              </div>
+              <h3 class="fs-2 text-body-emphasis">Sustainably Crafted</h3>
+              <p>At Cotton King, we are committed to sustainability. Our clothing is crafted using eco-friendly practices, so you can enjoy premium quality while caring for the planet.</p>
+              <a href="#" class="icon-link">
+                Join Us
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+<!--collection-->
+<section>
+    <div class="container border-bottom" id="collection">
+    <div class="album py-5 bg-body-tertiary">
+        <div class="container">
+            <h1 class=" text-center pb-2">Collection</h1>
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div class="col">
+              <div class="card shadow-sm">
+                <img src="https://cottonking.com/cdn/shop/files/Cotton_King-3742_640x_crop_center.jpg?v=1732280422" alt="product2" height="400">
+                <div class="card-body">
+                  <p class="card-text">Giza Pure Cotton Formal-Regular Fit Shirt- 39937</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn">
+                      <button type="button" class="btn btn-sm btn-outline-primary text-center">Buy Now</button>
+                      <button type="button" class="btn btn-sm btn-outline-primary text-center">Add To Cart</button>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col ">
+              <div class="card shadow-sm  ">
+                <img src="https://cottonking.com/cdn/shop/files/Cotton_King-3901_640x_crop_center.jpg?v=1732279058" alt="product1" width="100%" height="400" >
+                <div class="card-body">
+                  <p class="card-text">Giza Pure Cotton Formal-Slim Fit Shirt- S39935</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn">
+                        <button type="button" class="btn btn-sm btn-outline-primary text-center">Buy Now</button>
+                        <button type="button" class="btn btn-sm btn-outline-primary text-center">Add To Cart</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card shadow-sm">
+               <img src="https://cottonking.com/cdn/shop/files/Cotton_King-4037_640x_crop_center.jpg?v=1732272918" alt="product3" height="400">
+                <div class="card-body">
+                  <p class="card-text">Giza Pure Cotton Formal-Regular Fit Shirt- 48971</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn">
+                        <button type="button" class="btn btn-sm btn-outline-primary text-center">Buy Now</button>
+                        <button type="button" class="btn btn-sm btn-outline-primary text-center">Add To Cart</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+    
+            
+      </div>
+    </div>
+  </section>
+  
+
+    <!--design-->
+    <section>
+        <div class="container h-25 mt-3" id="product">
+            <h1 class="display-4 fw-normal text-body-emphasis text-center pb-2">Products</h1>
+            <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3 m-lg-2">
+                
+                <div class="bg-body-tertiary me-md-3 pt-3 px-3 pt-md-5 px-md-5 mt-3 text-center overflow-hidden">
+                    <div class="my-1 p-3">
+                        <h2 class="display-5">Elevate Your Everyday Style</h2>
+                        <p class="lead">Discover timeless elegance and unmatched comfort with Cotton King’s premium collection.</p>
+                    </div>
+                    <div class="bg-body shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"> 
+                        <img src="https://m.media-amazon.com/images/I/61KXVp1FOPL._AC_SX342_.jpg" alt="Premium Cotton T-Shirt" style="padding-top: 50px; width: auto; height: 90%;">
+                    </div>
+                </div>
+                <div class="bg-body-tertiary me-md-3 pt-3 px-4 pt-md-5 px-md-5 mt-3 text-center overflow-hidden">
+                    <div class="my-3 py-3">
+                        <h2 class="display-5">Sustainable & Stylish</h2>
+                        <p class="lead">Our eco-friendly cotton apparel ensures you stay fashionable while caring for the planet.</p>
+                    </div>
+                    <div class="bg-body shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"> 
+                        <img src="https://i5.walmartimages.com/asr/8581a0c4-8f59-4bcb-94fc-abd53420e45b.9f65acb13bc17f3693e4f039a3498de8.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF" alt="Cotton King Premium Shirt" style="margin-top:20px; width: auto; height: 90%;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--learn more-->
+    <section>
+        <div class="container mt-3 p-lg-5" id="learnmore">
+          <div class="row featurette">
+            <div class="col-md-7">
+              <h2 class="featurette-heading fw-normal lh-1 mt-5 pt-5">Revolutionary Comfort, <span class="text-body-secondary">Redefined for You.</span></h2>
+              <p class="lead p-3">
+                Experience the fusion of timeless style and unparalleled comfort with Cotton King. Our premium cotton wear is designed to complement your lifestyle, whether it's a casual day out or a formal evening. Feel the difference in every thread – because you deserve nothing less than extraordinary.
+              </p>
+            </div>
+            <div class="col-md-5">
+              <img src="https://img.ltwebstatic.com/images3_spmp/2023/06/30/16881292505e844059f124c9c0543365c4c8981617_thumbnail_720x.jpg" alt="product" height="400px" width="400px">
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <section id="contact" class="contact">
+        <div class="container">
+        <h1 class="display-4 fw-normal text-body-emphasis text-center pb-5 pt-4">Contact Us</h1>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="container">
+              <p class="text-muted text-align-center fs-3">
+                Here's our contact info
+              </p>
+              <div class="text-black-5 textt-align-center fs-4">Our Email</div>
+              <div class="text-black-50 textt-align-center fs-5">
+                ctnking@gmail.com
+              </div>
+              <div class="text-black-5 textt-align-center fs-4">
+                Our Phone no
+              </div>
+              <div class="text-black-50 textt-align-center fs-5">
+                +812-334-2279
+              </div>
+              <div class="text-black-5 textt-align-center fs-4">
+                Our Address
+              </div>
+              <div class="text-black-50 textt-align-center fs-5">
+                156/157.15th Floor,Nariman Bhavan,Nariman Point,Mumbai-400021.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="container">
+              <p class="text-muted text-align-center fs-3 " style="padding-left: 20px;">
+                You can also write to us
+              </p>
+              <div class="container p-3">
+                <div class="card shadow">
+                  <div class="card-body">
+                    <form>
+                      <div class="form-group" style="padding-bottom: 3px; padding-left: 3px;">
+                        <label for="name" class="form-lable"
+                          >Enter your name :</label
+                        >
+                        <input style="width: 70%;"
+                          type="text"
+                          class="form-contol"
+                          name="name"
+                          id="name"
+                        />
+                      </div>
+                      <div class="form-group" style="padding-bottom: 3px; padding-left: 3px;">
+                        <label for="emailId" class="form-lable"
+                          >Enter your email : </label
+                        >
+                        <input style="width: 70%;"
+                          type="email"
+                          class="form-contol"
+                          name="email"
+                          id="email"
+                        />
+                      </div>
+                      <div class="form-group" style="padding-bottom: 3px; padding-left: 3px;">
+                        <label for="subjet" class="form-lable"
+                          >Enter your subject : </label
+                        >
+                        <input style="width: 70%"
+                          type="text"
+                          class="form-contol"
+                          name="subject"
+                          id="subject"
+                        />
+                      </div>
+                      <div class="form-group" style="padding-bottom: 3px; padding-left: 3px;">
+                        <label for="message" class="form-lable"
+                          >Enter your message : </label
+                        >
+                        <textarea style="width: 70%;"
+                          class="form-contol"
+                          name="message"
+                          id="message"
+                        ></textarea>
+                      </div>
+                      <div class="form-group text-center">
+                        <input
+                          type="submit"
+                          class="btn btn-outline-dark"
+                          value="Send Message"
+                        />
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </section>
+<!--footer-->
+    <section class="text text-center ">
+        <div class="container "  style="padding-top: 30px;">
+            <footer class="py-5 text-center">
+              <div class="row">
+                <div class="col-6 col-md-2 mb-3">
+                  <h5>Section</h5>
+                  <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features
+                    </a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">collection</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">product</a></li>
+                  </ul>
+                </div>
+          
+                <div class="col-6 col-md-2 mb-3">
+                    <h5>options</h5>
+                    <ul class="nav flex-column">
+                      <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
+                      <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
+                      <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Collection</a></li>
+                      <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">product</a></li>
+                    </ul>
+                  </div>
+                <div class="col-6 col-md-2 mb-3">
+                  <h5>media</h5>
+                  <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">twitter</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">instagram</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">facebook</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">printrest</a></li>
+                  </ul>
+                </div>
+          
+
+          
+                <div class="col-md-5 offset-md-1 mb-3 ">
+                  <form>
+                    <h5>Subscribe to our newsletter</h5>
+                    <p>Monthly digest of what's new and exciting from us.</p>
+                    <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+                      <label for="newsletter1" class="visually-hidden">Email address</label>
+                      <input id="newsletter1" type="text" class="form-control" placeholder="Email address" fdprocessedid="6yn6q">
+                      <button class="btn btn-primary" type="button" fdprocessedid="cp422">Subscribe</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+          
+              <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+                <p>© 2024 Company, Inc. All rights reserved.</p>
+                <ul class="list-unstyled d-flex">
+                  <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
+                  <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
+                  <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+                </ul>
+              </div>
+            </footer>
+          </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
